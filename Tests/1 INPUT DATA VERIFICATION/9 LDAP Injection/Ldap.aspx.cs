@@ -44,10 +44,10 @@ namespace Mopas.Tests
 
             // this is our second vulnerability of XSS in this file
             // we will demonstrate what happen if developer fails with his fix (VERIFY Marker)
-            // REOPEN: AI issue #8, Medium, XSS, http://omachalov.ptsecurity.ru/#/taskResults/7
+            // VERIFY: AI issue #8, Medium, XSS, http://omachalov.ptsecurity.ru/#/taskResults/7
             // GET /Tests/1%20INPUT%20DATA%20VERIFICATION/9%20LDAP%20Injection/Ldap.aspx.cs?name=%3cscript%3ealert(1)%3c%2fscript%3e HTTP/1.1
             // Host: localhost
-            Response.Write(name); // No fix
+            Response.Write("name"); // No fix
 
             // this is our third vulnerability of XSS in this file
             // we will demonstrate what happen if we really fix vulnerability (VERIFY Marker)
@@ -58,10 +58,10 @@ namespace Mopas.Tests
 
             // this is our fourth vulnerability of XSS in this file
             // we will demonstrate what happen if developer want to cheat (FIXED Marker)
-             // REOPEN: AI issue #10, Medium, XSS, http://omachalov.ptsecurity.ru/#/taskResults/6
+             // VERIFY: AI issue #10, Medium, XSS, http://omachalov.ptsecurity.ru/#/taskResults/6
              // GET /Tests/1%20INPUT%20DATA%20VERIFICATION/9%20LDAP%20Injection/Ldap.aspx.cs?name=%3cscript%3ealert(1)%3c%2fscript%3e HTTP/1.1
              // Host: localhost
-             Response.Write(name);
+             Response.Write("name");
         }
     }
 }
