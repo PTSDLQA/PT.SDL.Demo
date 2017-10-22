@@ -37,28 +37,28 @@ namespace Mopas.Tests
 
             // this is our first vulnerability of XSS in this file
             // we will demonstrate False Positive scenario here (FP Marker)
-            // TODO: AI issue #4, Medium, XSS, http://omachalov.ptsecurity.ru/#/taskResults/4
+            // FP: AI issue #4, Medium, XSS, http://omachalov.ptsecurity.ru/#/taskResults/4
             // GET /Tests/1%20INPUT%20DATA%20VERIFICATION/9%20LDAP%20Injection/Ldap.aspx.cs?name=%3cscript%3ealert(1)%3c%2fscript%3e HTTP/1.1
             // Host: localhost
             Response.Write(name);
 
             // this is our second vulnerability of XSS in this file
             // we will demonstrate what happen if developer fails with his fix (VERIFY Marker)
-            // TODO: AI issue #3, Medium, XSS, http://omachalov.ptsecurity.ru/#/taskResults/3
+            // VERIFY: AI issue #3, Medium, XSS, http://omachalov.ptsecurity.ru/#/taskResults/3
             // GET /Tests/1%20INPUT%20DATA%20VERIFICATION/9%20LDAP%20Injection/Ldap.aspx.cs?name=%3cscript%3ealert(1)%3c%2fscript%3e HTTP/1.1
             // Host: localhost
-            Response.Write(name);
+            Response.Write(name); // No fix
 
             // this is our third vulnerability of XSS in this file
             // we will demonstrate what happen if we really fix vulnerability (VERIFY Marker)
-             // TODO: AI issue #2, Medium, XSS, http://omachalov.ptsecurity.ru/#/taskResults/2
+             // VERIFY: AI issue #2, Medium, XSS, http://omachalov.ptsecurity.ru/#/taskResults/2
              // GET /Tests/1%20INPUT%20DATA%20VERIFICATION/9%20LDAP%20Injection/Ldap.aspx.cs?name=%3cscript%3ealert(1)%3c%2fscript%3e HTTP/1.1
              // Host: localhost
-             Response.Write(name);
+             Response.Write("name");
 
             // this is our fourth vulnerability of XSS in this file
             // we will demonstrate what happen if developer want to cheat (FIXED Marker)
-             // TODO: AI issue #1, Medium, XSS, http://omachalov.ptsecurity.ru/#/taskResults/1
+             // FIXED: AI issue #1, Medium, XSS, http://omachalov.ptsecurity.ru/#/taskResults/1
              // GET /Tests/1%20INPUT%20DATA%20VERIFICATION/9%20LDAP%20Injection/Ldap.aspx.cs?name=%3cscript%3ealert(1)%3c%2fscript%3e HTTP/1.1
              // Host: localhost
              Response.Write(name);
